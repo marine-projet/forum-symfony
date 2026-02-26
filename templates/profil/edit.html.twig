@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('styles/css/forum_sujet.css') }}">
+{% endblock %}
+
+{% block body %}
+<a class="bouton3" href="{{ path('profil', { id: user.id }) }}" >← Retour</a>
+<div class="edit">
+    <h1>Modifier le profil</h1>
+
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+
+            {# Lien vers l'upload de la photo de profil #}
+        <p>
+            <a href="{{ path('profile_upload') }}" class="btn btn-secondary">
+                Modifier votre photo de profil
+            </a>
+        </p>
+        
+            <button class="modifier">Enregistrer les modifications</button>
+        {{ form_end(form) }}
+</div>
+    
+{% endblock %}

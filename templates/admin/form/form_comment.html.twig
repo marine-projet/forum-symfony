@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ name }}{% endblock %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="{{ asset('styles/css/admin.css') }}">
+{% endblock %}
+
+{% block body %}
+<a class="bouton2" href="{{ path('admin_comments') }}">← Retour</a>
+<div class="container my-4 d-flex flex-column align-items-center">
+  <h1 class="mb-4">{{ name }}</h1>
+  {{ form_start(form, { attr: { class: 'form-admin' } }) }}
+    {{ form_row(form.authorUser) }}
+    {{ form_row(form.subject) }}
+    {{ form_row(form.text) }}
+    {{ form_row(form.date) }}
+    <button class="bouton">Enregistrer</button>
+  {{ form_end(form) }}
+</div>
+{% endblock %}

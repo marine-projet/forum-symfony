@@ -1,0 +1,265 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Arial", sans-serif;
+}
+
+html, body {
+  overflow-x: hidden;     /* ✅ pas de scroll horizontal */
+}
+.header {
+    position: relative; 
+    z-index: 1000; 
+}
+.header img {
+    border: 2px solid transparent;
+    border-radius: 15px;
+    padding: 5px;
+    width: 32em;
+    filter: blur(0.5px);
+}
+
+.header img:hover {
+    border: 2px solid #FFE893;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+/* 
+**********************
+Styles de la liste 
+**********************
+*/
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;              
+    width: auto;           
+    z-index: 999;
+    padding: 10px 20px;
+    overflow-x: hidden;   
+    box-sizing: border-box; 
+    background-color: #AED3EA;
+    border-bottom: 2px dashed black;
+    display: flex;
+    justify-content: space-around;
+    white-space: wrap;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+    white-space: wrap;
+    gap: 1em;
+    font-size: 1.5em;
+}
+
+nav ul a {
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    padding: 5px;
+    color: black;
+}
+
+nav ul a.active {
+    background-color: #FFE893;
+    color: black;
+    border: 2px solid #5A86A1;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+nav ul a:hover {
+    background-color: #FFE893;
+    text-decoration: underline;
+    color: black;
+    border: 2px solid #5A86A1;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+#icon {
+    cursor: pointer;
+    display: none;
+    font-size: 4em;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+#icon:hover{
+    border: 2px solid #FFE893;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.notification-icon {
+    position: relative;
+    font-size: 24px; /* Taille de l'icône de cloche */
+    color: gray; /* Couleur par défaut pour la cloche */
+    text-decoration: none; /* Supprime les soulignements */
+}
+
+.notification-icon:hover {
+    color: black; /* Optionnel : changer la couleur de la cloche au survol */
+}
+
+/* Style du badge */
+.badge {
+    position: absolute;
+    top: -8px; /* Positionnez le badge légèrement au-dessus de la cloche */
+    right: -10px; /* Positionnez le badge légèrement à droite de l'icône */
+    background-color: red; /* Couleur rouge dynamique pour le badge */
+    color: white; /* Texte blanc */
+    font-size: 12px; /* Taille de la police du badge */
+    font-weight: bold; /* Police en gras */
+    border-radius: 50%; /* Cercle parfait */
+    padding: 5px 8px; /* ESPACE autour du texte dans le badge */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5); /* Optionnel : ajout d'une ombre */
+    border: 2px solid white; /* Optionnel : effet de bord blanc élégant */
+}
+
+/* Animation pour attirer l'attention sur la cloche */
+.notification-icon.new-notifications {
+    color: red; /* La couleur de la cloche devient rouge avec des nouvelles notifications */
+    animation: bell-glow 1.5s infinite; /* Ajout d'une animation (ex. : pulsation) */
+}
+
+/* Animation de pulsation pour les notifications */
+@keyframes bell-glow {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); color: darkred; }
+    100% { transform: scale(1); }
+}
+
+/* 
+**********************
+Styles du Footer
+**********************
+*/
+.footer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-top: 2px dashed black;
+    background-color: #427896;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+}
+
+.logo-footer {
+    width: 25em;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.logo-footer:hover {
+    border: 2px solid #FFE893;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow-y: scroll;
+    margin-top: 5em;
+}
+
+
+.footer-content p {
+    padding: 2px 5px; 
+    border: 1px solid #AED3EA; 
+    border-radius: 5px; 
+    background-color: #FFE893; 
+    color: black; 
+    font-size: 22px; 
+    font-weight: bold; 
+}
+
+.footer-flex { 
+    display:flex; 
+    justify-content:space-around;
+    gap:20px; 
+    padding:28px 16px; 
+}
+
+.footer-col {
+    display: flex; 
+    flex-direction: column;
+}
+.footer-col h4 { 
+    text-decoration: underline;
+    margin:0 0 10px; 
+    font-size: 2.5em;
+}
+
+.footer-col ul { 
+    list-style:none; 
+    font-size: 1.5em;
+    padding:0; 
+    margin:0; 
+    display:grid; 
+    gap:6px; 
+}
+
+.footer-col ul li a { 
+    text-decoration:none; 
+    color:#fff; 
+}
+
+.footer-brand { display:flex; flex-direction: column; align-items:center; gap:10px; margin-bottom:10px; }
+.footer-bottom { padding:12px 16px; border-top:1px solid #ddd; }
+
+
+/* 
+**********************
+Media Queries
+**********************
+*/
+@media screen and (max-width: 1644px) {
+    .header img {
+        width: 25em;
+    }
+    nav ul {
+        position: fixed;
+        top: 12em;
+        left: -100%;
+        flex-direction: column;
+        background-color: #427892;
+        border: 2px dashed black;
+        width: 100%;
+        text-align: center;
+        transition: left 0.6s ease-in-out;
+        z-index: 999;
+        gap: 2em;
+    }
+    nav li {
+        padding: 3px 0;
+        margin: 10px;
+        font-size: clamp(1rem, 3vw, 1.4rem);
+    }
+    nav.active ul {
+        left: 0;
+    }
+    #icon {
+        display: block;
+    }
+    #icon:before {
+        content: "\2630";
+        transition: opacity 0.6s ease-in-out;
+    }
+    .active #icon:before {
+        content: "\2715";
+    }
+}
+
+@media (max-width: 1644px) { .footer-flex { flex-direction: column; } }

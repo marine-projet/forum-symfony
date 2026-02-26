@@ -1,0 +1,143 @@
+/* Base */
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #F7F4EF; /* Fond commun */
+  margin: 0;
+  padding: 0;
+  color: #264143;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 26em 5px 5em 5px;
+  background-color: #F7F4EF !important;
+}
+/* Conteneur pour le titre et l'image */
+.titre {
+    position: relative; /* Nécessaire pour positionner l'image sous le texte */
+    display: flex; /* Active Flexbox */
+    justify-content: center; /* Centre horizontalement le h1 */
+    align-items: center; /* Centre verticalement tout dans la fenêtre */
+    text-align: center; /* Centrer le texte dans le conteneur */
+    margin: 0; /* Supprime les marges inutiles */
+    flex-direction: column; /* Positionne les enfants (h1 et image) en colonne */
+}
+
+/* Style du titre h1 */
+.titre h1 {
+    font-size: 5rem; /* Taille du texte */
+    font-weight: bold;
+    margin: 0; /* Supprime les marges automatiques */
+    position: relative; /* Nécessaire si on ajoute des ajustements ultérieurs */
+    text-align: center; /* Centre le texte */
+}
+
+.user-info {
+  display: flex;
+  justify-content: center;
+}
+
+.user-info li {
+  list-style: none;
+}
+
+.user-info li a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #264143;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  font-size: 2em;
+  cursor: pointer;
+}
+
+.user-info .image-os {
+    width: 241px;
+}
+
+.banniere {
+  width: 80%;
+  display: flex;
+  gap: 4em;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3em;
+}
+
+.banniere img {
+  width: 43em;
+  border-radius: 10%;
+}
+
+.banniere .banniere-texte {
+  text-align: center;
+}
+
+/* Container principal centré */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.colonne-container {
+  display: flex;
+  flex-direction: row;
+  gap: 4rem;
+  width: 90vw;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Bloc pour les sections de nouveautés et sujets discutés */
+.bloc {
+  padding: 20px;
+  background-color: #f7deaa6b;
+  border: 2px solid #264143;
+  border-radius: 20px;
+  box-shadow: 3px 4px 0px 1px #4184c9;
+  width: 30%;
+  min-width: 300px;
+  text-align: center;
+}
+
+/* Titres des sections */
+.bloc h2 {
+  color: #264143;
+  text-decoration: underline;
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+.bloc p {
+  font-size: 1.5em;
+  margin: 15px 0;
+  color: #003d7f;
+}
+
+/* Lien hover pour les sujets */
+.bloc a {
+  color: #003d7f;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+
+.nombre {
+  font-size: 0.8em;
+  color: #333;
+}
+
+
+/* Responsiveness */
+@media screen and (max-width: 1644px) {
+  .banniere{
+    flex-direction: column;
+  }
+}

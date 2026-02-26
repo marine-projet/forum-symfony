@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+{{ parent() }}
+    <script src="{{ asset('styles/javascript/login.js') }}" defer></script>
+{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+   <link rel="stylesheet" href="{{ asset('styles/css/profil.css') }}?v=1.0">
+{% endblock %}
+
+{% block body %}
+
+<h1>Mon profil !</h1>
+<a href="{{ path('profil_edit', { id: user.id }) }}" class="modifier">Modifier</a>
+<div class='container-profil'>
+    <div class='premier-bloc-profil'>
+        <h2>Mes informations :</h2>
+        <img 
+        src="{{ app.user.profilePicture ? asset('uploads/' ~ app.user.profilePicture) : asset('images/Membre.png') }}" 
+        alt="Photo de profil de {{ user.username }}"
+        class="photo-profil">
+        <p><strong class="titre">Pseudo : </strong> {{ user.username }}</p>
+        <p><a href="mailto:{{ user.email }}"><strong class="titre">Email :</strong> {{ user.email }}</a></p>
+        <p><strong class="titre">Est ici depuis le :</strong> {{ user.createdAt|date('d/m/Y') }}</p>
+    </div>
+    <div class='colonne-container-profil'>
+        <div class='deuxieme-bloc-profil'>
+            <h2>Mes activités :</h2>
+            {% if comments|length > 0 %}
+                <ul>
+                {% for comment in comments %}
+                    <li>
+                    <p><u class="titre">Commentaire dans le Sujet:</u> <a href="{{ path('profil') }}">{{ comment.subject.name }}</a></p>
+                    <p class="date"><strong >Publié le :</strong> {{ comment.date|date('d/m/Y H:i') }}</p>
+                    </li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <p>Vous n'avez encore laissé aucun commentaire.</p>
+            {% endif %}
+        </div>
+    </div>
+     <div class='colonne-container-profil'>
+        <div class='troisieme-bloc-profil'>
+            <h2>Mes sujets favoris :</h2>
+            {% if favoriteSubjects|length > 0 %}
+                <ul>
+                {% for sujet in favoriteSubjects %}
+                    <li>
+                    <p>⭐️ <a href="{{ path('forum_sujet_detail', { id: sujet.id }) }}">{{ sujet.name }}</a></p>
+                    </li>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <p>Vous n'avez encore ajouté aucun sujet en favori.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

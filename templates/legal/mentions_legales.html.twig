@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ pageTitle }}{% endblock %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="{{ asset('styles/css/legal.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Mentions légales</h1>
+<h2>Éditeur du site</h2>
+<p>
+Ce site est édité par :<br>
+**Nom :** Jean Dupont (vous pouvez être identifiable uniquement pour des raisons légales).<br>
+**Adresse e-mail :** <a href="mailto:contact@votresite.fr">contact@votresite.fr</a>.<br>
+**Adresse :** Hébergé à titre personnel.
+</p>
+
+<h2>Hébergement</h2>
+<p>
+Ce site est hébergé sur un serveur personnel appartenant à :<br>
+**Nom :** Jean Dupont.<br>
+Pour contacter l'administrateur du site, veuillez utiliser l'adresse e-mail indiquée ci-dessus.
+</p>
+
+<h2>Propriété intellectuelle</h2>
+<p>
+Tout le contenu présent sur ce site (textes, images, codes) est la propriété exclusive de Jean Dupont. Toute reproduction, même partielle, sans consentement explicite est strictement interdite.
+</p>
+</div>
+
+{% endblock %}

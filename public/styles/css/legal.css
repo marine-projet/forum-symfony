@@ -1,0 +1,44 @@
+html, body {
+    height: 100%; 
+    margin: 0; 
+    padding: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+main {
+    font-family: "Arial", sans-serif;
+    text-align: center;
+    margin: 0;
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding: 26em 5px 5em 5px;  
+    background-color: #F7F4EF !important;
+}
+
+/* 0) Allège le main : tes paddings géants cassent le responsive */
+main{
+  padding: 26em 5px 5em 5px;
+
+}
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  background-color: #f7deaa;
+  height: auto;
+  width: auto;
+  border: 2px solid #264143;
+  border-radius: 20px;
+  box-shadow: 3px 4px 0px 1px #4184c9;
+}
+
+.container h1 {
+  text-decoration: underline;
+  font-weight: 900;
+  font-size: 4.5em;
+  margin-top: 20px;
+}

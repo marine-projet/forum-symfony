@@ -1,0 +1,265 @@
+html, body {
+    height: 100%; 
+    margin: 0; 
+    padding: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+main {
+    font-family: "Arial", sans-serif;
+    text-align: center;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #F7F4EF !important;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    padding: 26em 5px 5em 5px;
+}
+
+.sujet{
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-sujet, .edit {
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: 1em auto;
+    font-size: 2em;
+}
+
+.edit{
+    display: flex;
+    align-items: center;
+    font-size: 2em;
+    background-color: #F5E8E3;
+    border: 2px solid black;
+    border-radius: 15px;    
+}
+
+.edit h1{
+    padding: 1em;
+    color: #5A86A1;
+}
+
+.edit form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+}
+
+.colonne-container-sujet {
+    display: flex; 
+    flex-direction: column;
+    flex: 1; 
+    border-radius: 15px;
+    height: 100%; 
+    margin-bottom: 20px;
+    background-color: #f7deaa6b;
+    border: 2px solid #264143;
+    border-radius: 20px;
+    box-shadow: 3px 4px 0px 1px #4184c9;
+}
+
+.premier-bloc-sujet, .deuxieme-bloc-sujet, .troisieme-bloc-sujet {
+    width: 100%;
+    display: flex; 
+    flex-direction: column;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    flex: 1; 
+    padding: 10px;
+}
+
+.premier-bloc-sujet{
+    border-bottom: 2px solid #AED3EA 
+}
+
+.premier-bloc-sujet .sujet {
+    display: flex;
+}
+
+.troisieme-bloc-sujet{
+    position: relative;
+    order: 3;
+    background-color: #f7deaa6b;
+    border: 2px solid #264143;
+    border-radius: 20px;
+    box-shadow: 3px 4px 0px 1px #4184c9;
+}
+.comment-item {
+    list-style: none;
+    margin-bottom: 1em;
+    border-bottom: 3px solid #AED3EA;
+}
+
+
+.comment-item:nth-child(even) {
+    background-color: #f7dfaa8f; 
+}
+
+.comment-item .Auteur{
+    font-size: 1.5em;
+    display: flex;
+    justify-content: space-between;
+    color: #5A86A1;
+}
+
+.comment-item img {
+    width: 4em;
+    border-radius: 50%;
+}
+
+.comment-item .date{
+    color: #AED3EA;
+    
+}
+.comment-item .date p{
+    display: inline-block; 
+    padding: 2px 5px; 
+    border: 1px solid #AED3EA; 
+    border-radius: 5px; 
+    background-color: #FFE893; 
+    color: black; 
+    font-size: 0.5em; 
+    font-weight: bold; 
+}
+
+#comment-form{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+#comment-input{
+    width: 80%;
+}
+
+a .bouton-forum {
+    background-color: #5A86A1;
+    color: white;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 1em;
+    font-size: 2em;
+    cursor: pointer !important;
+    width: 11em;
+    z-index: 999;
+}
+.premier-bloc-sujet .btn {
+    background-color: #ffe793;
+    width: fit-content;
+}
+
+.bouton2 {
+    margin: 0 auto;
+    background-color: #5A86A1;
+    color: white;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 1em;
+    font-size: 1em;
+    cursor: pointer;
+    width: 7em;
+}
+
+.bouton3{
+    background-color: #FFE893;
+    margin: auto;
+    width: fit-content;
+    color: #000;
+    text-decoration: none;
+    border: 2px solid #5A86A1;
+    border-radius: 15px;
+    padding: 6px;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.button {
+    display: flex;
+    gap: 0.5em;
+}
+
+.modifier {
+    display: inline-flex;
+    padding: 2px 5px;
+    border: 1px solid #ffe793;
+    border-radius: 18px;
+    background-color: #7955487a;
+    color: #ffffff;
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    align-items: center;
+}
+
+.supprimer {
+    display: inline-flex;
+    padding: 2px 5px;
+    border: 1px solid #ffe793;
+    border-radius: 18px;
+    background-color: #d32f2fad;
+    color: #ffffff;
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 1em;
+    align-items: center;
+}
+
+/* Styles communs */
+.categorie {
+    background-color: rgb(0 0 0 / 14%);
+    text-shadow: 1px 1px black;
+    width: fit-content;
+    padding: 5px;
+    border-radius: 1em;
+}
+
+/* 
+**********************
+Media Queries
+**********************
+*/
+@media screen and (max-width: 1204px){
+    .container-forum {
+        flex-direction: column;
+        padding: 1em;
+    }
+        .container-sujet h2{
+        width: 76% !important;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .container-forum {
+        flex-direction: column;
+        align-items: center;
+        padding: 1em;
+    }
+
+    .troisieme-bloc-sujet{
+        order: -1;
+        margin-bottom: 1em;
+    }
+
+    .frozen{
+        width: 6em;
+        top: -1em;
+        right: -1em;
+    }
+
+    .comment-item .Auteur {
+        font-size: 1.2em;
+    }
+    .bouton-forum{
+        right: 4em;
+        top: 50%;
+    }
+}
+
+

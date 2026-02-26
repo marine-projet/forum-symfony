@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+{% block title %}Admin — Dashboard{% endblock %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="{{ asset('styles/css/admin.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="container my-4 admin-dashboard">
+  <h1 class="mb-4">Tableau de bord — Admin</h1>
+  <img class='images' src="{{ asset('images/patte.png') }}" alt="Image de Dory">
+
+  <div class="row g-3 justify-content-center admin-cards">
+    <div class="col-12 col-md-6 col-lg-3">
+      <div class="card text-center h-100">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <div class="h2">{{ stats.users }}</div>
+            <div class="text-muted mb-3">Membres</div>
+          </div>
+          <a class="bouton" href="{{ path('admin_members') }}">Voir</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+      <div class="card text-center h-100">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <div class="h2">{{ stats.categories }}</div>
+            <div class="text-muted mb-3">Catégories</div>
+          </div>
+          <a class="bouton" href="{{ path('admin_categories') }}">Voir</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+      <div class="card text-center h-100">
+        <div class="card-body d-flex flex-column justify-content-between">
+          <div>
+            <div class="h2">{{ stats.sujets }}</div>
+            <div class="text-muted mb-3">Sujets</div>
+          </div>
+          <a class="bouton" href="{{ path('admin_sujets') }}">Voir</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6 col-lg-3">
+  <div class="card text-center h-100">
+    <div class="card-body d-flex flex-column justify-content-between">
+      <div>
+        <div class="h2">{{ stats.comments }}</div>
+        <div class="text-muted mb-3">Commentaires</div>
+      </div>
+      <a class="bouton" href="{{ path('admin_comments') }}">Voir</a>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+{% block title %}Admin — Commentaires{% endblock %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="{{ asset('styles/css/admin.css') }}">
+{% endblock %}
+
+{% block body %}
+
+<div class="container my-4 admin-dashboard">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="h3 m-0">Commentaires</h1>
+    <a class="bouton2" href="{{ path('admin_dashboard') }}">← Retour</a>
+  </div>
+
+<div class="table-responsive admin-card">
+    <table class="table table-sm align-middle mb-0">
+      <thead>
+        <tr>
+          <th>Auteur</th>
+          <th>Extrait</th>
+          <th>Sujet</th>
+          <th>Créé le</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for comment in comments %}
+          <tr>
+            <td><p class="only-mobile">Auteur : </p> 
+              {{ comment.authorUser ? comment.authorUser.username : comment.author }}
+            </td>
+            <td><p class="only-mobile">Extrait : </p> {{ comment.text|u.truncate(80, '…') }}</td>
+            <td><p class="only-mobile">Sujet : </p> 
+              {{ comment.subject ? comment.subject.name : '—' }}
+            </td>
+            <td><p class="only-mobile">Créé le : </p> 
+              {{ comment.date ? comment.date|date('d/m/Y H:i') : '—' }}
+            </td>
+            <td class="text-end d-flex flex-column justify-content-between align-items-center">
+              <a class="bouton3" href="{{ path('admin_comments_edit', {id: comment.id}) }}">Modifier</a>
+              <form class="d-inline" method="post" action="{{ path('admin_comments_delete', {id: comment.id}) }}"
+                    onsubmit="return confirm('Supprimer ce commentaire ?');">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete_comment_' ~ comment.id) }}">
+                <button class="btn btn-danger">Supprimer</button>
+              </form>
+            </td>
+          </tr>
+        {% else %}
+          <tr><td colspan="5" class="text-center text-muted">Aucun commentaire.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}
+

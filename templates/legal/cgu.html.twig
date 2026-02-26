@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ pageTitle }}{% endblock %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="{{ asset('styles/css/legal.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Conditions Générales d'Utilisation (CGU)</h1>
+<h2>Article 1 – Objet</h2>
+<p>
+Ce site <b>votresite.fr</b> propose un contenu informatif mis à disposition gratuitement. 
+</p>
+
+<h2>Article 2 – Propriété intellectuelle</h2>
+<p>
+Tout le contenu de ce site est protégé par les lois relatives à la propriété intellectuelle. Toute reproduction sans autorisation est interdite.
+</p>
+</div>
+
+{% endblock %}

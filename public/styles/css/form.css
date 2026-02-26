@@ -1,0 +1,127 @@
+/* 0) Allège le main : tes paddings géants cassent le responsive */
+main{
+  padding: 26em 5px 5em 5px;
+  background-color: #F7F4EF !important;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.form_area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f7deaa;
+    height: auto;
+    width: auto;
+    border: 2px solid #264143;
+    border-radius: 20px;
+    box-shadow: 3px 4px 0px 1px #4184c9;
+}
+
+.form_area h2 {
+  color: #4184c9;
+  text-decoration: underline;
+  font-weight: 900;
+  font-size: 5.5em;
+  margin-top: 20px;
+}
+form{
+  font-size: 2em;
+  padding: 2rem 0rem;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+}
+.form_group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+.sub_title {
+  font-weight: 600;
+  margin: 5px 0;
+}
+input{
+    border: 2px solid #ffcc08;
+    border-radius: 15px;
+    padding: 10px;
+    font-size: 1em;
+    width: 20rem;
+}
+.form_style {
+  outline: none;
+  border: 2px solid #264143;
+  box-shadow: 3px 4px 0px 1px #3F51B5;
+  width: 11em;
+  padding: 12px 10px;
+  border-radius: 4px;
+  font-size: 1.5em;
+}
+
+.form_style:focus, .btn:focus {
+  transform: translateY(4px);
+  box-shadow: 1px 2px 0px 0px #3F51B5;
+}
+/* On enveloppe le champ dans un conteneur relatif */
+.input-with-icon {
+  position: relative;
+  gap: 1rem;
+  width: 100%;
+}
+.input-with-icon label{
+    margin-right: 1rem;
+
+}
+/* Icône œil positionnée à l’intérieur du champ */
+.image_mdp {
+  position: absolute;
+  right: -0.2rem;              
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5rem;               
+  cursor: pointer;
+}
+
+
+#image_mdp {
+  position: absolute;
+  right: 4.8rem;               
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5rem;              
+  cursor: pointer;
+}
+
+.form_area p, .form_area form .form_group p{
+    font-size: 2em;
+}
+.form_area p a{
+    color: #003d7f;
+    -webkit-text-stroke: 1px #1a245b;
+    text-decoration: underline;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.btn {
+  padding: 15px;
+  margin: 25px 0px;
+  width: 290px;
+  font-size: 23px !important;
+  background: #24bbf7 !important;
+  font-weight: 800;
+  border: 3px solid #3F51B5 !important;
+  box-shadow: 3px 3px 0px 0px #3F51B5;
+}
+
+.btn:hover {
+  opacity: .9;
+}

@@ -1,0 +1,59 @@
+<footer class="footer">
+  <div class="footer-flex">
+    <div class="footer-col">
+      <div class="footer-brand">
+      <a href="{{ path('home') }}"><img class="logo-footer" src="{{ asset('images/Logo-footer.png') }}" alt="Logo du site"></a>
+        <strong>Mon Forum Chiens</strong>
+      </div>
+      <p class="footer-text">
+        La communauté des amoureux des chiens 🐶<br>
+        Conseils d’éducation, entraide, et dog-sitters près de chez vous.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Forum</h4>
+      <ul>
+        <li><a href="{{ path('forum') }}">Général</a></li>
+        <li><a href="{{ path('forum') }}">Toilettage et soins</a></li>
+        <li><a href="{{ path('forum') }}">Comportement et dressage</a></li>
+        <li><a href="{{ path('forum') }}">Santé et bien-être</a></li>
+        <li><a href="{{ path('forum') }}">Activités et jeux</a></li>
+        <li><a href="{{ path('forum') }}">Voyages et sorties</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Compte</h4>
+      <ul>
+        {% if app.user %}
+          <li><a href="{{ path('profil') }}">Mon profil</a></li>
+        {% else %}
+          <li><a href="">Connexion</a></li>
+          <li><a href="">Inscription</a></li>
+        {% endif %}
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Légal</h4>
+      <ul>
+        <li><a href="{{ path('app_mentions_legales') }}">Mentions légales</a></li>
+        <li><a href="{{ path('app_politique_confidentialite') }}">Politique de confidentialité</a></li>
+        <li><a href="{{ path('app_cgu') }}">CGU</a></li>
+      </ul>
+    </div>
+      <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:contact.marine1991@gmail.com">Contactez-nous !</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-content">
+        <p>👥 {{ nbMembers }} membres inscrits sur le forum</p>    
+          </div>
+  <div class="footer-bottom">
+    <small>© {{ "now"|date("Y") }} Mon Forum Chiens — Tous droits réservés.</small>
+  </div>
+</footer>

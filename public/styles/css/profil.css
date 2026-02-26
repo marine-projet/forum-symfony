@@ -1,0 +1,129 @@
+
+html, body {
+    height: 100%; 
+    margin: 0; 
+    padding: 0;
+    transition: opacity 0.5s ease-in-out;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+main {
+    font-family: "Arial", sans-serif;
+    text-align: center;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #F7F4EF !important;
+    display: flex;
+    min-height: 83vh;
+    flex-direction: column;
+    align-items: center;
+    padding: 26em 5px 5em 5px;
+}
+
+h1 {
+    font-size: 5.5em !important;
+    text-decoration: underline;
+}
+
+.modifier {
+    display: inline-flex;
+    padding: 2px 5px;
+    margin-top: 40px;
+    border: 1px solid #ffe793;
+    border-radius: 5px;
+    background-color: #795548;
+    color: #ffffff;
+    font-size: 2em;
+    font-weight: bold;
+    align-items: center;
+}
+
+.form-label {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+    color: #5A86A1;
+}
+
+.container-profil h2{
+    text-decoration: underline;
+    margin-bottom: 1em;
+}
+
+.container-profil {
+    display: flex;
+    width: 80%;
+    margin: 2em auto;
+    gap: 1em;
+    font-size: 2em;
+}
+
+.photo-profil img {
+    width: 10em;
+}
+.colonne-container-profil {
+    display: flex; 
+    gap: 1em;
+    margin-bottom: 15px; 
+    flex: 1; 
+    height: 100%; 
+}
+.premier-bloc-profil, .deuxieme-bloc-profil, .troisieme-bloc-profil {
+    background-color: #f7deaa6b;
+    border: 2px solid #264143;
+    border-radius: 20px;
+    box-shadow: 3px 4px 0px 1px #4184c9;
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    flex: 1; 
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.photo-profil {
+    width: 10em;
+    border-radius: 50%;
+    margin-bottom: 1em;
+}
+
+.deuxieme-bloc-profil ul, .troisieme-bloc-profil ul {
+    list-style: none;
+}
+
+.container-profil .titre{
+    color: #5A86A1;
+}
+
+.container-profil a{
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.container-profil a:hover{
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+.container-profil .date{
+    display: inline-block; 
+    padding: 2px 5px; 
+    border: 1px solid #AED3EA; 
+    border-radius: 5px; 
+    background-color: #FFE893; 
+    color: black; 
+    font-size: 0.7em; 
+    font-weight: bold; 
+}
+
+/* 
+**********************
+Media Queries
+**********************
+*/
+@media screen and (max-width: 2800px) {
+    .container-profil {
+        flex-direction: column;
+}
+}

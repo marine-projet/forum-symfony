@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+
+{% block javascripts %}
+{{ parent() }}
+    <script src="{{ asset('styles/javascript/login.js') }}" defer></script>
+{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+   <link rel="stylesheet" href="{{ asset('styles/css/form.css') }}?v=1.0">
+{% endblock %}
+
+{% block body %}
+<div class="form_area">
+        <h2>INSCRIPTION !</h2>
+        <p>Un email de confirmation vient de t'être envoyé !</p>
+        <p>Merci de cliquer sur le lien dans cet email pour valider ton inscription.</p>
+</div>
+{% endblock %}

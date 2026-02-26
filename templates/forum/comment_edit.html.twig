@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+{{ parent() }}
+<link rel="stylesheet" href="{{ asset('styles/css/forum_sujet.css') }}">
+{% endblock %}
+
+{% block body %}
+<a class="bouton3" href="{{ path('forum_sujet_detail', { 'id': sujet.id }) }}">← Retour</a>
+<div class="edit">
+    <h1>Modifier le commentaire</h1>
+
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button class="modifier">Enregistrer les modifications</button>
+        {{ form_end(form) }}
+</div>
+    
+{% endblock %}

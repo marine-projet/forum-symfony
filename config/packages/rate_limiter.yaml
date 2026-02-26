@@ -1,0 +1,6 @@
+framework:
+  rate_limiter:
+    password_reset_requests:
+      policy: 'fixed_window'
+      limit: 3
+      interval: '60 minutes'

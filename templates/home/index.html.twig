@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+
+{% block stylesheets %}
+{{ parent() }}
+   <link rel="stylesheet" href="{{ asset('styles/css/body.css') }}?v=1.0">
+{% endblock %}
+
+
+{% block body %}
+ 
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+      <ul class="user-info">
+        <li>
+         <a href="{{ path('profil') }}">
+            <p>Hello {{ app.user.username }} !</p>
+            <img src="{{ asset('images/os.png') }}" alt="Image d'un os" class="image-os"> 
+         </a>
+        </li>
+      </ul>
+{% endif %}
+
+<div class="banniere">
+   <img src="{{ asset('images/Chiens.jpeg') }}" alt="...">
+   <div class="banniere-texte">
+      <h2>Bienvenue sur notre forum dédié à l'univers canin !</h2>
+      <p>Rejoignez notre communauté passionnée de chiens pour partager vos expériences, 
+      poser des questions et échanger des conseils sur tout ce qui concerne nos amis à quatre pattes. 
+      Que vous soyez un propriétaire de chien expérimenté 
+      ou que vous envisagiez d'adopter votre premier compagnon, 
+      notre forum est l'endroit idéal pour trouver des informations, du soutien et des discussions enrichissantes sur le monde canin. 
+      N'hésitez pas à participer et à faire partie de notre communauté canine !</p>
+      </div>
+</div>
+
+
+   <div class='container'>    
+      <div class='colonne-container'>
+         <div class='bloc'>
+            <h2>Les dernièrs sujets</h2>
+            {% for sujet in dernieresNouveautes %}
+                 <p>✨ 
+                  {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                     <a href="{{ path('forum_sujet_detail', {id: sujet.id}) }}">{{ sujet.name }}</a>
+                  {% else %}
+                     {{ sujet.name }}
+                  {% endif %}
+               </p>
+            {% else %}
+               <p>Aucune nouveauté pour le moment.</p>
+            {% endfor %}
+         </div>
+         <div class='bloc'>
+            <h2>Les sujets les plus discutés</h2>
+            {% for row in topDiscussed %}
+         {% set sujet = row[0] %}
+         {% set nb = row.nbComments|default(0) %}
+               <p>
+                  {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                  {% if sujet.getCategory() is not null %}
+    <span>[{{ sujet.getCategory().name }}]</span>
+{% endif %}
+                     <a href="{{ path('forum_sujet_detail', { id: sujet.id }) }}">{{ sujet.name }}</a>
+                  {% else %}
+                     {{ sujet.name }}
+                  {% endif %}
+                  <small class="nombre">({{ nb }} commentaire{{ nb == 1 ? '' : 's' }})</small>
+               </p>
+      {% else %}
+         <p>Aucun sujet discuté pour le moment.</p>
+      {% endfor %}
+         </div>
+      </div>
+   </div>
+{% endblock %}

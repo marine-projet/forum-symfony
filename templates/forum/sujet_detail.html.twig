@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ subject.name }}{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('styles/css/forum_sujet.css') }}">
+{% endblock %}
+
+{% block body %}
+
+    <a href="{{ path('forum') }}"><button class="bouton-forum" fill="currentColor">Retour au forum</button></a>
+
+       <div class='container-sujet'>
+      <div class='colonne-container-sujet'>
+         <div class='premier-bloc-sujet'>
+         <div class="sujet">
+                     <h2><u>Sujet :</u> {{ subject.name }}</h2>
+            {% if app.user and subject in app.user.favoriteSubjects %}
+    <a href="{{ path('forum_sujet_favorite', { id: subject.id }) }}" class="btn">
+        <p>RETIRER DE MES FAVORIS</p>
+        <i class="fa-solid fa-heart"></i>
+    </a>
+{% else %}
+    <a href="{{ path('forum_sujet_favorite', { id: subject.id }) }}" class="btn">
+        <p>AJOUTER A MES FAVORIS</p>
+        <i class="fa-regular fa-heart"></i>
+    </a>
+{% endif %}
+         </div>
+
+<p class="categorie categorie-{{ subject.category.id }}">
+             <strong>Catégorie :</strong> {{ subject.category.name }}
+            </p>
+         </div>
+         <div class='deuxieme-bloc-sujet'>
+            <ul id="comment-list">
+                {% for comment in comments %}
+                    <li class="comment-item">
+                    {# Vérifiez si l'utilisateur connecté est l'auteur du commentaire #}
+                        {% if app.user and app.user.username == comment.author %}
+                        <div class="button">
+                            <a href="{{ path('comment_edit', { id: comment.id }) }}" class="modifier">Modifier</a>
+                            <a href="{{ path('comment_delete', { id: comment.id }) }}" class="supprimer">Supprimer</a>
+                        </div>
+                            
+                        {% endif %}
+                        <div class="Auteur">
+    <p>
+        {# Affiche l'image de profil de l'auteur s'il en a une, sinon une image par défaut #}
+        <img 
+            src="{{ comment.authorUser and comment.authorUser.profilePicture 
+                ? asset('uploads/' ~ comment.authorUser.profilePicture) 
+                : asset('images/Membre.png') }}" 
+            alt="Photo de profil"
+            class="profile-picture"
+        >
+        {{ comment.author }}
+    </p>
+    <div class="date">
+        <p>Posté le : {{ comment.date|date('d/m/Y à H:i') }}</p>
+    </div>
+</div>
+                        <p style="word-wrap: break-word; word-break: break-word; white-space: normal;">{{ comment.text }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+         </div>
+      </div>
+      <div class='troisieme-bloc-sujet'>
+            <h2>Ajouter un commentaire</h2>
+            <form id="comment-form" method="post" action="{{ path('forum_sujet_detail', { id: subject.id }) }}">
+                <textarea id="comment-input" name="text" required></textarea>
+                <button class="bouton2" type="submit">Ajouter</button>
+                        
+            </form>
+      </div>
+   </div>
+{% endblock %}

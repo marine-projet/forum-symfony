@@ -1,17 +1,58 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Aston & co – Forum de discussion dédié à l’univers canin.">
+  <title>{% block title %}Aston & co{% endblock %}</title>
 
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-    </body>
+  <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+
+  {# --- Styles --- #}
+
+  {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+    {{ encore_entry_link_tags('app') }}
+    <link rel="stylesheet" href="{{ asset('styles/css/header-footer.css') }}?v=1.0">
+  {% endblock %}
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+        rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+        crossorigin="anonymous">
+
+  {# --- JS --- #}
+  {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+    {{ encore_entry_script_tags('app') }}
+    <script src="{{ asset('styles/javascript/header-footer.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+            <script>
+        // Test de Bootstrap
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('Bootstrap est chargé correctement !');
+        });
+    </script>
+  {% endblock %}
+</head>
+
+<body>
+
+  {# En-tête globale #}
+  <header role="banner">
+    {% include 'partials/header.html.twig' %}
+  </header>
+
+  {# Zone principale #}
+  <main id="main" role="main" tabindex="-1">
+    {% block body %}{% endblock %}
+  </main>
+
+  {# Pied de page #}
+  <footer role="contentinfo">
+    {% include 'partials/footer.html.twig' %}
+  </footer>
+</body>
 </html>

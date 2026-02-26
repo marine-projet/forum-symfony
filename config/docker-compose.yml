@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+    container_name: symfony_app
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./symfony:/var/www/html
+    environment:
+      MAILER_DSN: smtp://mailhog:1025
+
+  mailhog:
+    image: mailhog/mailhog
+    container_name: mailhog
+    ports:
+      - "1025:1025"  # Port SMTP
+      - "8025:8025"  # Interface Web de Mailhog

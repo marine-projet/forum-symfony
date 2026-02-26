@@ -1,0 +1,76 @@
+/* Base */
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #F7F4EF; /* Fond commun */
+  margin: 0;
+  padding: 0;
+  color: #264143;
+}
+
+main {
+    font-family: "Arial", sans-serif;
+    text-align: center;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: #F7F4EF !important;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding: 26em 5px 5em 5px;
+}
+
+h1 {
+    font-size: 5.5em !important;
+    text-decoration: underline;
+}
+
+/* Style général des notifications */
+
+.notifications {
+    font-size: 2em;
+}
+.ul { 
+    list-style-type: none; 
+    padding: 0; 
+    width: 50%;
+}
+
+.ul li { 
+    list-style: none;
+    padding: 10px; 
+    border-bottom: 1px solid #ccc; 
+}
+
+.ul li a {
+    text-decoration: none; 
+    color: #264143; 
+    font-weight: bold;
+}
+
+/* Classe pour les notifications lues */
+.message-lu {
+    color: gray; /* Texte en gris */
+    font-style: italic; /* Optionnel, pour indiquer qu'il est lu */
+}
+
+/* Classe pour les notifications non lues */
+.message-non-lu {
+    color: red !important; /* Texte en rouge */
+    font-weight: bold; /* Optionnel, pour le rendre plus visible */
+}
+
+.notifications .date{
+    display: inline-block; 
+    padding: 2px 5px; 
+    border: 1px solid #AED3EA; 
+    border-radius: 5px; 
+    background-color: #FFE893; 
+    color: black; 
+    font-size: 0.5em; 
+    font-weight: bold; 
+}
+
+.ul li:nth-child(even) {
+    background-color: #f7dfaa8f; 
+}

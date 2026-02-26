@@ -1,0 +1,9 @@
+body {
+    overflow: hidden;
+}
+
+* {
+    overflow: hidden;
+}
+
+   @import "~bootstrap/scss/bootstrap";

@@ -1,0 +1,180 @@
+html, body {
+    height: 100%; 
+    margin: 0; 
+    padding: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+main {
+    font-family: "Arial", sans-serif;
+    background-color: #F7F4EF; 
+    text-align: center;
+    margin: 0;
+    box-sizing: border-box;
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    padding: 26em 5px 5em 5px;
+}
+
+/* 
+**********************
+Style pour l'affichage de la page principale et des boutons
+**********************
+*/
+.container h1{
+    text-decoration: underline;
+    margin-bottom: 2em;
+    font-size: 5.5em !important;
+}
+
+
+.container .images{
+    width: 9em;
+}
+
+.bouton{
+    background-color: #5A86A1;
+    text-decoration: none;
+    color: white;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 6px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.bouton2{
+    background-color: #FFE893;
+    color: #000;
+    text-decoration: none;
+    border: 2px solid #5A86A1;
+    border-radius: 15px;
+    padding: 6px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.bouton3 {
+    background-color: #d4edfd;
+    text-decoration: none;
+    color: #000000;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 6px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+input{
+    border-radius: 15px;
+    border: 2px solid black;
+    padding: 5px;
+}
+
+.btn-danger {
+    color: #000000 !important;
+    border: 2px solid #000000 !important;
+    border-radius: 15px !important;
+    background-color: #dc354563 !important;
+}
+
+.container a:hover{
+  color: #000;
+}
+
+.card-body .bouton{
+    background-color: #5A86A1;
+    color: white;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 6px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.card{
+    background-color: #f7deaa6b !important;
+    border: 2px solid #264143 !important;
+    border-radius: 20px !important;
+    box-shadow: 3px 4px 0px 1px #4184c9 !important;
+}
+
+.admin-cards{
+  margin-top: 3em !important;
+  font-size: 2em !important;
+}
+
+/* 
+**********************
+Style pour les tableaux
+**********************
+*/
+
+.form-admin {
+    display: flex; 
+    flex-direction: column;
+    gap: 1em;
+    width: 300px;
+}
+
+.text-end{
+  gap: 10px;
+}
+
+.admin-dashboard table,
+.admin-dashboard .list-group {
+  background-color: #F5E8E3;        
+  border-radius: 0.5em;         
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+  overflow: hidden;        
+}
+
+.admin-dashboard table th,
+.admin-dashboard table td {
+  background-color: #F5E8E3;        
+
+}
+
+.admin-dashboard .list-group-item {
+  background-color: #F5E8E3;
+  border: none;                 
+  border-bottom: 1px solid #eee; 
+}
+
+.admin-dashboard .admin-card {
+  background: #F5E8E3;
+  border-radius: .5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,.1);
+  overflow: hidden;
+}
+
+.admin-dashboard .list-group-item {
+  background: #F5E8E3;
+  border: none;
+  border-bottom: 1px solid #eee;
+}
+
+.only-mobile{
+  display: none;
+}
+
+
+@media (max-width: 993px){
+  .admin-dashboard table th,
+.admin-dashboard table td {    
+  display: flex;
+  justify-content: center;
+
+}
+.admin-dashboard table thead{
+  display: none;
+}
+.only-mobile {
+  font-size: large;
+  color: #5A86A1;
+  display: block;
+  margin-right: .5rem; 
+  }
+}

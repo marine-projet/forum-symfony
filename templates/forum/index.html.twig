@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block javascripts %}
+{{ parent() }}
+    <script src="{{ asset('styles/javascript/forum.js') }}" defer></script>
+{% endblock %}
+
+{% block stylesheets %}
+{{ parent() }}
+    <link rel="stylesheet" href="{{ asset('styles/css/forum.css') }}?v=2.0">
+{% endblock %}
+
+{% block body %}
+    <h1>Bienvenue sur le forum !</h1>
+    <div class='container-forum'>
+        <div class='premier-bloc-forum'>
+            <h2>Catégories</h2>
+            <ul>
+                {% for category in categories %}
+                {% set isActive = category.id == selectedCategoryId %}
+                <li>
+                    <a href="?category_filter={{ category.id }}"
+                       class="{{ isActive ? 'active' : '' }}">
+               {{ category.name }}
+            </a>
+                </li>
+                {% else %}
+                <li>Aucune catégorie disponible.</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class='colonne-container-forum'>
+            <div class='deuxieme-bloc-forum' id="create-subject">
+                <h2 class="sujet">Créer un sujet +</h2>
+            </div>
+            <div class='troisieme-bloc-forum'>
+                <h2>Sujets :</h2>
+                <ul>
+                {% for sujet in sujets %}
+                <li>
+                    <a href="{{ path('forum_sujet_detail', { id: sujet.id }) }}">{{ sujet.name }}
+                    <span>({{ sujet.comments|length }} {{ sujet.comments|length > 1 ? 'commentaires' : 'commentaire' }})</span>
+                    </a>
+                </li>
+                    {% else %}
+                    <li>Aucun sujet trouvé pour cette catégorie.</li>
+                    {% endfor %}
+                </ul>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span> <!-- Bouton de fermeture -->
+            <h2>Ton titre de sujet :</h2>
+            {{ form_start(form) }}
+                {{ form_row(form.name) }}
+                {{ form_row(form.category) }} <!-- Champ de sélection de la catégorie -->
+                <button type="submit" class="create-btn">Créer</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

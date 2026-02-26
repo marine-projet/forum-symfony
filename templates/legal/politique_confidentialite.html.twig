@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ pageTitle }}{% endblock %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="{{ asset('styles/css/legal.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Politique de confidentialité</h1>
+<p>
+Ce site respecte votre vie privée et ne collecte aucune donnée personnelle sans votre consentement.
+</p>
+
+<h2>Données collectées</h2>
+<p>
+Si vous utilisez le formulaire de contact, les données suivantes peuvent être collectées :
+<ul>
+  <li>Votre nom</li>
+  <li>Votre adresse e-mail</li>
+  <li>Le contenu de votre message</li>
+</ul>
+Ces données sont utilisées uniquement pour vous répondre et ne sont pas partagées avec des tiers.
+</p>
+
+<h2>Cookies</h2>
+<p>
+Ce site n’utilise pas de cookies à des fins de suivi ou de publicité.
+</p>
+
+<h2>Vos droits</h2>
+<p>
+Conformément au RGPD, vous avez le droit d'accéder, de modifier ou de demander la suppression de vos données. 
+Pour ce faire, contactez-nous à : <a href="mailto:contact.marine1991@gmail.com">contact.marine1991@gmail.com</a>.
+</p>
+</div>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+{% block title %}Admin — Sujets{% endblock %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="{{ asset('styles/css/admin.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="container my-4 admin-dashboard">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="h3 m-0">Tous les sujets</h1>
+    <a class="bouton" href="{{ path('admin_sujets_new') }}">+ Nouveau sujet</a>
+    <a class="bouton2" href="{{ path('admin_dashboard') }}">← Retour</a>
+  </div>
+
+  <div class="table-responsive admin-card">
+    <table class="table table-sm align-middle mb-0">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Catégorie</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for s in sujets %}
+          <tr>
+            <td><p class="only-mobile">Nom : </p> {{ s.name }}</td>
+            <td><p class="only-mobile">Catégorie : </p> {{ s.category ? s.category.name : '—' }}</td>
+            <td class="text-end d-flex flex-column justify-content-between align-items-center">
+        <a class="bouton3" href="{{ path('admin_sujets_edit', {id: s.id}) }}">Modifier</a>
+        <form action="{{ path('admin_sujets_delete', {id: s.id}) }}" method="post" class="d-inline" onsubmit="return confirm('Supprimer ce sujet ?');">
+          <input type="hidden" name="_token" value="{{ csrf_token('delete_sujet_' ~ s.id) }}">
+          <button class="btn btn-danger">Supprimer</button>
+        </form>
+      </td>
+          </tr>
+        {% else %}
+          <tr><td colspan="3">Aucun sujet.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

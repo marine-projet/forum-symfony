@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+{% block title %}Admin — Membres{% endblock %}
+
+{% block stylesheets %}
+  {{ parent() }}
+  <link rel="stylesheet" href="{{ asset('styles/css/admin.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="container my-4 admin-dashboard">
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="h3 m-0">Tous les membres</h1>
+      <a class="bouton" href="{{ path('admin_members_new') }}">+ Nouveau membre</a>
+    <a class="bouton2" href="{{ path('admin_dashboard') }}">← Retour</a>
+  </div>
+
+  <div class="table-responsive admin-card">
+    <table class="table table-sm align-middle mb-0">
+      <thead>
+        <tr>
+          <th>Pseudo</th>
+          <th>Email</th>
+          <th>Mot de passe</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for m in members %}
+          <tr>
+
+            <td><p class="only-mobile">Pseudo : </p> {{ m.username }}</td>
+            <td><p class="only-mobile">Email : </p> {{ m.email ?? '—' }}</td>
+            <td><p class="only-mobile">Mot de passe : </p> {{ m.password|join(', ') }}</td>
+            <td class="text-end d-flex flex-column justify-content-between align-items-center">
+              <a class="bouton3" href="{{ path('admin_members_edit', {id: m.id}) }}">Modifier</a>
+              <form action="{{ path('admin_members_delete', {id: m.id}) }}" method="post" class="d-inline" onsubmit="return confirm('Supprimer ce membre ?');">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete_user_' ~ m.id) }}">
+                <button class="btn btn-danger">Supprimer</button>
+              </form>
+            </td>
+          </tr>
+        {% else %}
+          <tr><td colspan="4">Aucun membre.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

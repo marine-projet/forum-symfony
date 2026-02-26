@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+   {{ parent() }}
+   <link rel="stylesheet" href="{{ asset('styles/css/profil.css') }}?v=1.0">
+{% endblock %}
+
+{% block body %}
+    <h1>Modifier votre photo de profil</h1>
+
+    {{ form_start(form) }}
+
+        {# Image Preview - au démarrage, affiche l'image actuelle ou cache l'aperçu si aucune image n'est présente #}
+             <img id="preview" 
+            src="{{ app.user.profilePicture ? asset('uploads/' ~ app.user.profilePicture) : asset('images/Membre.png') }}"  
+            alt="Prévisualisation de la photo de profil" 
+            class="photo-profil"
+        />
+        
+        {# Sélection de l'image - l'ID est utilisé dans le JS pour lancer les événements #}
+        {{ form_row(form.profilePicture, { 'attr': { 'id': 'profilePictureInput' } }) }}
+
+        <br><br>
+        <button type="submit" class="btn btn-primary">Mettre à jour</button>
+
+    {{ form_end(form) }}
+
+    <br>
+
+    {# Formulaire de suppression de photo #}
+    <form action="{{ path('profile_picture_delete') }}" method="post" onsubmit="return confirm('Voulez-vous vraiment supprimer votre photo de profil ?');">
+        <button type="submit" class="btn btn-danger">Supprimer la photo</button>
+    </form>
+
+    <script>
+        // Récupère les éléments HTML nécessaires
+        const input = document.getElementById('profilePictureInput'); // L'input pour charger un fichier
+        const preview = document.getElementById('preview'); // L'élément img pour l'aperçu
+
+        // Ajoute l'événement "change" sur l'input
+        input.addEventListener('change', (event) => {
+            const file = event.target.files[0]; // Récupère le fichier sélectionné par l'utilisateur
+
+            if (file) {
+                const reader = new FileReader(); // Initialise un lecteur de fichier
+
+                // Lorsque la lecture du fichier est terminée
+                reader.onload = function (e) {
+                    preview.src = e.target.result; // Définit la source de l'image à l'URL du fichier
+                    preview.style.display = 'block'; // Affiche l'image
+                };
+
+                // Lance la lecture du fichier sélectionné (en tant qu'URL DataURI)
+                reader.readAsDataURL(file);
+            } else {
+                // Si aucun fichier n'est sélectionné, cache l'aperçu
+                preview.src = '#';
+                preview.style.display = 'none';
+            }
+        });
+    </script>
+{% endblock %}
